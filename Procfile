@@ -1,0 +1,1 @@
+web: gunicorn gremener_assignment.wsgi --log-file -
