@@ -17,6 +17,13 @@ from .models import Operation
 
 # APIView to create all the operations
 class OperationCreateAPIView(CreateAPIView):
+    """
+    :parameter
+    -name :  name of the operation
+    -formula : formula of operation
+                ex: for addition "x+y"
+                  : for factorial math.factorial(n)
+    """
     serializer_class = OperationSerializer
     permission_classes = [AllowAny]
     queryset = Operation.objects.all()
@@ -43,6 +50,13 @@ class PerformOperationAPIView(APIView):
     permission_classes = [AllowAny]
 
     def post(self, request, *args, **kwargs):
+        """
+        :param request:
+        :param args: operation_id - Id of an operation
+        parameters : Parameters of an equation(In json format-Values should be either int or float)
+        :param kwargs:
+        :return:Result of an operation
+        """
         data = request.data
         serializer = PerformOperationSerializer(data=data)
         if serializer.is_valid(raise_exception=True):
