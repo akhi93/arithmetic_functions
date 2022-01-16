@@ -70,8 +70,8 @@ class PerformOperationAPIView(APIView):
             # execute formula(type:str) saved in model using eval function
             try:
                 result = eval(formula)
-            except ZeroDivisionError:
-                return Response({"error" :"Division by zero cannot be possible"}, status=HTTP_400_BAD_REQUEST)
+            except Exception as e:
+                return Response({"error" : str(e)}, status=HTTP_400_BAD_REQUEST)
             if isinstance(result, float):
                 result = float("{:.2f}".format(result))
             return Response({"result":result}, status=HTTP_200_OK)
