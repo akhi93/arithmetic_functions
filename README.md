@@ -1,6 +1,6 @@
 <b>How to run the Application</b>	
 
-- Install all the dependencies in requirment.txt file
+- Install all the dependencies in requirment.txt file - pip install -r "requirements.txt"
 - run the command "python manage.py runserver"
 
 <b>Approach to the solution</b>
